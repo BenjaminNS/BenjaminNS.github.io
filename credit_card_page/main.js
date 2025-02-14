@@ -14,7 +14,14 @@ const tarjeta = new tarjetaVirtual(document.querySelectorAll('[data-text="codigo
 	document.querySelectorAll('[data-text="cvc"]'));
 console.log('Tarjeta: ', tarjeta);
 
-function animarPagina(){
+const tamanoMovil = 992;
+if (window.innerWidth > tamanoMovil){
+	animarPaginaEscritorio();
+} else{
+	animarPaginaMovil();
+}
+
+function animarPaginaEscritorio(){
 	tl.set('.form',{
 		'y': '50px',
 		'opacity': 0,
@@ -40,7 +47,32 @@ function animarPagina(){
 		'duration': .8,
 	});
 }
-animarPagina();
+function animarPaginaMovil(){
+	tl.set('.form',{
+		'y': '50px',
+		'opacity': 0,
+	});
+	tl.from('.fondo-gradiente',{
+		'y': '-100%',
+		'delay': .3,
+		'duration': .8,
+	}).from('.logo', {
+		'y': '-50px',
+		'opacity': 0,
+		'delay': 0,
+		'duration': .5,
+	}).from('.credit-card',{
+		'--separacionTarjeta': '60px',
+		'opacity': 0,
+		'delay': 0,
+		'duration': .8,
+	}).to('.form',{
+		'y': '0px',
+		'opacity': 1,
+		'delay': -.8,
+		'duration': .8,
+	});
+}
 
 let inputsTexto = document.querySelectorAll('input[type="text"]');
 for (var i = 0; i < inputsTexto.length; i++) {
@@ -73,6 +105,7 @@ function esTeclaEspecial(teclaPulsada) {
 
 	return false;
 }
+
 function esCaracterValido(letra, event){
 	const regex = new RegExp(event.target.getAttribute('letras'));
 	const found = letra.match(regex);
