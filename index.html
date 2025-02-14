@@ -4,12 +4,37 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Portafolio BNS</title>
+	<style>
+		.liga-pagina{
+			/* --ancho: 500px;
+			width: var(--ancho);
+			flex-basis: var(--ancho); */
+
+			img{
+				width: 500px;
+				max-width: 100%;
+				height: auto;
+			}
+		}
+
+		.contenedor-ligas{
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: .5rem;
+		}
+	</style>
 </head>
 <body>
 	<h1>Portafolio BNS</h1>
-	<a href="credit_card_page/creditcardpage.html">
-		<img src="creditcard_thumbnail.png" style="max-width: 700px;">
-		<h2>Página de pago con tarjeta de crédito</h2>
-	</a>
+	<div class="contenedor-ligas">
+		<a class="liga-pagina" href="credit_card_page/creditcardpage.html">
+			<img src="creditcard_thumbnail.png" style="max-width: 700px;">
+			<h2>Página de pago con tarjeta de crédito</h2>
+		</a>
+		<a class="liga-pagina" href="act_100personasdijeron/act_100personasdijeron.html">
+			<img src="familyfeud_thumbnail.png" style="max-width: 700px;">
+			<h2>Página de pago con tarjeta de crédito</h2>
+		</a>
+	</div>
 </body>
 </html>
